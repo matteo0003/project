@@ -15,6 +15,9 @@ export default defineNuxtConfig({
   routeRules: {
     '/api/**': {
       cors: true
+    },
+    '/auth/**': {
+      appLayout: false
     }
   },
 
@@ -26,6 +29,14 @@ export default defineNuxtConfig({
         commaDangle: 'never',
         braceStyle: '1tbs'
       }
+    }
+  },
+
+  // FIXME
+  runtimeConfig: {
+    public: {
+      supabaseUrl: process.env.SUPABASE_URL,
+      supabasePublishableKey: process.env.SUPABASE_PUBLISHABLE_KEY
     }
   }
 })
